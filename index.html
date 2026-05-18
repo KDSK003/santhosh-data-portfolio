@@ -5,200 +5,249 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Santhosh M — Data Analyst</title>
 <style>
-@import url('data:text/css,');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;background:#0a0e1a;color:#e2e8f0;line-height:1.6;font-size:15px;overflow-x:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#070b16;color:#e2e8f0;line-height:1.6;font-size:15px;overflow-x:hidden}
 
-/* PROGRESS */
-#bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#6366f1,#8b5cf6,#06b6d4);z-index:999;width:0;transition:width .1s}
+/* SCROLL PROGRESS */
+#bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#6366f1,#a855f7,#06b6d4);z-index:999;width:0;transition:width .1s;box-shadow:0 0 8px rgba(99,102,241,.6)}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(99,102,241,.2);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 5%}
-.logo{font-weight:800;font-size:1.05rem;color:#fff;text-decoration:none;letter-spacing:-.02em}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,11,22,.88);backdrop-filter:blur(24px);border-bottom:1px solid rgba(99,102,241,.15);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 5%}
+.logo{font-weight:800;font-size:1rem;color:#fff;text-decoration:none;letter-spacing:-.02em;display:flex;align-items:center;gap:.5rem}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#06b6d4)}
 .logo span{background:linear-gradient(135deg,#6366f1,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.navl{list-style:none;display:flex;gap:1.8rem}
-.navl a{font-size:.78rem;font-weight:500;color:#94a3b8;text-decoration:none;transition:.2s;letter-spacing:.02em}
-.navl a:hover{color:#6366f1}
-.nav-btn{font-size:.78rem;font-weight:700;padding:.45rem 1.3rem;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;border-radius:8px;text-decoration:none;transition:.2s;letter-spacing:.02em}
-.nav-btn:hover{opacity:.85;transform:translateY(-1px)}
+.navl{list-style:none;display:flex;gap:2rem}
+.navl a{font-size:.78rem;font-weight:500;color:#64748b;text-decoration:none;transition:.2s;position:relative;padding-bottom:2px}
+.navl a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:#6366f1;transition:.3s}
+.navl a:hover{color:#e2e8f0}
+.navl a:hover::after{width:100%}
+.nav-resume{font-size:.75rem;font-weight:700;padding:.42rem 1.1rem;background:transparent;color:#6366f1;border:1.5px solid rgba(99,102,241,.4);border-radius:7px;text-decoration:none;transition:.2s;margin-right:.5rem}
+.nav-resume:hover{background:rgba(99,102,241,.1)}
+.nav-hire{font-size:.75rem;font-weight:700;padding:.42rem 1.1rem;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;border-radius:7px;text-decoration:none;transition:.2s}
+.nav-hire:hover{opacity:.88;transform:translateY(-1px);box-shadow:0 6px 20px rgba(99,102,241,.35)}
 
-/* HERO */
-.hero-wrap{min-height:100vh;display:flex;align-items:center;padding:100px 5% 60px;position:relative;overflow:hidden}
-.hero-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(99,102,241,.12) 0%,transparent 65%),radial-gradient(ellipse 60% 50% at 20% 80%,rgba(6,182,212,.08) 0%,transparent 60%)}
-.hero-inner{max-width:1180px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.73rem;font-weight:600;color:#6366f1;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.3);border-radius:100px;padding:.35rem 1rem;margin-bottom:1.5rem;letter-spacing:.04em}
-.bdot{width:7px;height:7px;background:#22d3ee;border-radius:50%;animation:pulse 1.6s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
-.hero h1{font-size:clamp(2.8rem,4.5vw,4.2rem);font-weight:800;line-height:1.06;letter-spacing:-.04em;color:#f8fafc;margin-bottom:.6rem}
-.hero h1 .grad{background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 40%,#06b6d4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.role-tag{display:inline-flex;align-items:center;gap:.6rem;font-size:.9rem;font-weight:600;color:#94a3b8;margin-bottom:1rem}
-.role-tag::before{content:'';width:32px;height:2px;background:linear-gradient(90deg,#6366f1,#06b6d4);border-radius:2px}
-.hero-p{font-size:.9rem;color:#94a3b8;max-width:500px;line-height:1.9;margin-bottom:2rem}
-.hero-p strong{color:#e2e8f0}
-.btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2.5rem}
-.btn-g{padding:.72rem 1.6rem;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-size:.82rem;font-weight:700;border-radius:8px;text-decoration:none;transition:.2s;border:none;cursor:pointer}
-.btn-g:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(99,102,241,.35)}
-.btn-o{padding:.72rem 1.6rem;background:transparent;color:#e2e8f0;font-size:.82rem;font-weight:600;border-radius:8px;border:1px solid rgba(255,255,255,.15);text-decoration:none;transition:.2s}
-.btn-o:hover{border-color:#6366f1;color:#6366f1;transform:translateY(-2px)}
-.hnums{display:flex;gap:2rem}
-.hn{position:relative;padding-left:.9rem}
-.hn::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#6366f1,#06b6d4);border-radius:2px}
-.hn b{display:block;font-size:1.55rem;font-weight:800;color:#f8fafc;letter-spacing:-.03em}
-.hn span{font-size:.65rem;color:#64748b;text-transform:uppercase;letter-spacing:.1em}
+/* ── HERO ── */
+.hero-wrap{min-height:100vh;display:flex;align-items:center;padding:100px 5% 70px;position:relative;overflow:hidden}
+.hero-orb1{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.1) 0%,transparent 70%);top:-200px;right:-150px;pointer-events:none}
+.hero-orb2{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(6,182,212,.07) 0%,transparent 70%);bottom:-100px;left:-100px;pointer-events:none}
+.hero-inner{max-width:1180px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 420px;gap:5rem;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;color:#6366f1;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.25);border-radius:100px;padding:.32rem 1rem;margin-bottom:1.6rem;letter-spacing:.05em}
+.bdot{width:7px;height:7px;background:#22d3ee;border-radius:50%;animation:pulse-dot 1.6s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.8)}}
+.hero h1{font-size:clamp(2.8rem,4.5vw,4.4rem);font-weight:800;line-height:1.05;letter-spacing:-.04em;color:#f8fafc;margin-bottom:.5rem}
+.hero h1 .grad{background:linear-gradient(135deg,#6366f1 0%,#a855f7 50%,#06b6d4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.role-tag{display:inline-flex;align-items:center;gap:.7rem;font-size:.88rem;font-weight:600;color:#94a3b8;margin-bottom:1.2rem}
+.role-tag::before{content:'';width:28px;height:2px;background:linear-gradient(90deg,#6366f1,#06b6d4);border-radius:2px;flex-shrink:0}
+.hero-p{font-size:.88rem;color:#64748b;max-width:500px;line-height:1.95;margin-bottom:2rem}
+.hero-p strong{color:#cbd5e1}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2.8rem}
+.btn-primary{padding:.72rem 1.7rem;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-size:.82rem;font-weight:700;border-radius:8px;text-decoration:none;transition:.25s;border:none;cursor:pointer;letter-spacing:.02em}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 35px rgba(99,102,241,.4)}
+.btn-ghost{padding:.72rem 1.7rem;background:transparent;color:#e2e8f0;font-size:.82rem;font-weight:600;border-radius:8px;border:1px solid rgba(255,255,255,.12);text-decoration:none;transition:.25s}
+.btn-ghost:hover{border-color:rgba(99,102,241,.5);color:#818cf8;transform:translateY(-2px)}
+.hnums{display:flex;gap:2.2rem}
+.hn{position:relative;padding-left:.95rem}
+.hn::before{content:'';position:absolute;left:0;top:2px;bottom:2px;width:2px;background:linear-gradient(180deg,#6366f1,#06b6d4);border-radius:2px}
+.hn b{display:block;font-size:1.6rem;font-weight:800;color:#f8fafc;letter-spacing:-.03em;line-height:1}
+.hn span{font-size:.62rem;color:#475569;text-transform:uppercase;letter-spacing:.1em;margin-top:.3rem;display:block}
 
-/* TERMINAL */
-.terminal{background:#0d1117;border-radius:14px;overflow:hidden;border:1px solid rgba(99,102,241,.25);box-shadow:0 0 60px rgba(99,102,241,.12)}
-.t-bar{background:#161b22;padding:.65rem 1rem;display:flex;align-items:center;gap:.45rem;border-bottom:1px solid #21262d}
-.td{width:11px;height:11px;border-radius:50%}
-.t-title{font-size:.68rem;color:#6e7681;margin-left:.4rem;font-family:monospace}
-.t-body{padding:1.4rem 1.5rem;font-family:'Courier New',monospace;font-size:.77rem;line-height:2}
-.tc-g{color:#3fb950}.tc-b{color:#79c0ff}.tc-y{color:#e3b341}.tc-m{color:#d2a8ff}.tc-w{color:#c9d1d9}.tc-d{color:#6e7681}
-.t-row{display:flex;justify-content:space-between;padding:.28rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
-.t-row:last-child{border:none}
-.cursor{display:inline-block;width:8px;height:14px;background:#6366f1;vertical-align:middle;animation:blink .9s step-end infinite}
+/* PROFILE CARD */
+.profile-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:20px;overflow:hidden;position:relative}
+.profile-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#6366f1,#a855f7,#06b6d4)}
+.profile-top{padding:2rem 2rem 0;display:flex;flex-direction:column;align-items:center;text-align:center}
+
+/* HUMAN AVATAR */
+.avatar-wrap{position:relative;margin-bottom:1.2rem}
+.avatar-ring{width:110px;height:110px;border-radius:50%;padding:3px;background:linear-gradient(135deg,#6366f1,#a855f7,#06b6d4);margin:0 auto}
+.avatar-inner{width:100%;height:100%;border-radius:50%;background:#0d1117;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
+.avatar-svg{width:100%;height:100%}
+.avail-badge{position:absolute;bottom:4px;right:4px;width:18px;height:18px;background:#0d1117;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.avail-badge::after{content:'';width:10px;height:10px;background:#22c55e;border-radius:50%;animation:pulse-dot 2s infinite}
+
+.profile-name{font-size:1.1rem;font-weight:800;color:#f8fafc;letter-spacing:-.02em;margin-bottom:.2rem}
+.profile-role{font-size:.75rem;color:#6366f1;font-weight:600;letter-spacing:.04em;margin-bottom:.3rem}
+.profile-loc{font-size:.72rem;color:#475569;margin-bottom:1.2rem}
+
+.profile-pills{display:flex;flex-wrap:wrap;gap:.35rem;justify-content:center;padding:0 1rem 1.2rem}
+.pill{font-size:.62rem;font-weight:600;padding:.22rem .6rem;border-radius:100px;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.2);color:#818cf8}
+
+.profile-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.07)}
+.ps{padding:1rem .5rem;text-align:center;border-right:1px solid rgba(255,255,255,.07)}
+.ps:last-child{border-right:none}
+.ps b{display:block;font-size:1.25rem;font-weight:800;background:linear-gradient(135deg,#6366f1,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.ps span{font-size:.58rem;color:#334155;text-transform:uppercase;letter-spacing:.09em;margin-top:.3rem;display:block}
+
+/* TERMINAL SECTION */
+.terminal-mini{background:#0d1117;border-top:1px solid rgba(255,255,255,.07);padding:1rem 1.2rem;font-family:'Courier New',monospace;font-size:.7rem;line-height:1.8}
+.tc-g{color:#4ade80}.tc-b{color:#60a5fa}.tc-y{color:#fbbf24}.tc-m{color:#c084fc}.tc-d{color:#374151}.tc-w{color:#9ca3af}
+.t-row-m{display:flex;justify-content:space-between;padding:.1rem 0}
+.cursor{display:inline-block;width:7px;height:12px;background:#6366f1;vertical-align:middle;animation:blink .9s step-end infinite;margin-left:2px}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 
-/* SECTIONS */
-.section{max-width:1180px;margin:0 auto;padding:90px 5%;position:relative}
-.sec-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#6366f1;margin-bottom:.4rem;display:flex;align-items:center;gap:.6rem}
-.sec-label::before{content:'';width:20px;height:2px;background:linear-gradient(90deg,#6366f1,#06b6d4);border-radius:2px}
-.sec-h{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;color:#f8fafc;margin-bottom:.5rem}
-.sec-p{font-size:.86rem;color:#64748b;max-width:540px;line-height:1.85;margin-bottom:2.8rem}
-.hr{height:1px;background:linear-gradient(90deg,transparent,rgba(99,102,241,.2),transparent);margin:0 5%}
+/* ── SHARED ── */
+.section{max-width:1180px;margin:0 auto;padding:88px 5%}
+.sec-eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#6366f1;margin-bottom:.5rem;display:flex;align-items:center;gap:.6rem}
+.sec-eyebrow::before{content:'';width:18px;height:2px;background:linear-gradient(90deg,#6366f1,#06b6d4);border-radius:2px}
+.sec-h{font-size:2rem;font-weight:800;letter-spacing:-.03em;color:#f8fafc;margin-bottom:.5rem}
+.sec-sub{font-size:.85rem;color:#475569;max-width:540px;line-height:1.85;margin-bottom:2.8rem}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(99,102,241,.18),transparent);margin:0 5%}
 
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:start}
-.ap{font-size:.86rem;color:#94a3b8;line-height:1.9;margin-bottom:.9rem}
-.ap strong{color:#e2e8f0}
-.info-list{margin-top:1.5rem;display:flex;flex-direction:column;gap:.5rem}
-.info-r{display:flex;align-items:center;gap:1rem;padding:.65rem 1rem;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid rgba(255,255,255,.07)}
-.info-k{font-size:.68rem;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.07em;min-width:110px}
-.info-v{font-size:.8rem;color:#cbd5e1}
-.stat-boxes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(99,102,241,.2);border:1px solid rgba(99,102,241,.2);border-radius:12px;overflow:hidden;margin-bottom:1.5rem}
-.sb{background:#0d1117;padding:1.5rem 1.2rem;text-align:center;transition:.2s}
-.sb:hover{background:rgba(99,102,241,.08)}
-.sb b{display:block;font-size:2.2rem;font-weight:800;letter-spacing:-.04em;background:linear-gradient(135deg,#6366f1,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.sb span{font-size:.62rem;color:#475569;text-transform:uppercase;letter-spacing:.1em;margin-top:.3rem;display:block}
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:4rem;align-items:start}
+.ap{font-size:.86rem;color:#64748b;line-height:1.95;margin-bottom:.9rem}
+.ap strong{color:#cbd5e1}
+.info-grid{margin-top:1.6rem;display:flex;flex-direction:column;gap:.45rem}
+.info-r{display:flex;align-items:center;gap:1rem;padding:.6rem .95rem;background:rgba(255,255,255,.025);border-radius:8px;border:1px solid rgba(255,255,255,.06);transition:.2s}
+.info-r:hover{border-color:rgba(99,102,241,.25);background:rgba(99,102,241,.05)}
+.info-k{font-size:.67rem;font-weight:700;color:#334155;text-transform:uppercase;letter-spacing:.07em;min-width:108px}
+.info-v{font-size:.8rem;color:#94a3b8}
+.boxes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.15);border-radius:12px;overflow:hidden;margin-bottom:1.5rem}
+.bx{background:#0d1117;padding:1.6rem 1.2rem;text-align:center;transition:.2s}
+.bx:hover{background:rgba(99,102,241,.07)}
+.bx b{display:block;font-size:2.1rem;font-weight:800;letter-spacing:-.04em;background:linear-gradient(135deg,#6366f1,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.bx span{font-size:.6rem;color:#334155;text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;display:block}
+.soft-skills{display:grid;grid-template-columns:1fr;gap:.4rem}
+.ss-row{display:flex;align-items:center;gap:.7rem;padding:.55rem .8rem;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:7px;font-size:.76rem;color:#64748b}
+.ss-icon{font-size:.9rem;flex-shrink:0}
+.ss-label{color:#94a3b8;font-weight:500}
 
-/* SKILLS */
+/* ── SKILLS ── */
 .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-.sk-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.5rem;transition:.25s;position:relative;overflow:hidden}
-.sk-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--a),var(--b));opacity:0;transition:.25s}
-.sk-card:hover{border-color:rgba(99,102,241,.35);transform:translateY(-4px);background:rgba(99,102,241,.06)}
-.sk-card:hover::before{opacity:1}
-.sk-head{display:flex;align-items:center;gap:.75rem;margin-bottom:1.1rem;padding-bottom:.9rem;border-bottom:1px solid rgba(255,255,255,.07)}
-.sk-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-.sk-cat{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.2rem}
+.sk{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:1.5rem;transition:.28s;position:relative;overflow:hidden}
+.sk::after{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,var(--a),var(--b));transform:scaleX(0);transition:.3s;transform-origin:left}
+.sk:hover{transform:translateY(-5px);border-color:rgba(99,102,241,.3);box-shadow:0 16px 50px rgba(0,0,0,.35)}
+.sk:hover::after{transform:scaleX(1)}
+.sk-head{display:flex;align-items:center;gap:.75rem;margin-bottom:1.1rem;padding-bottom:.9rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.sk-ico{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0}
+.sk-cat{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.13em;margin-bottom:.2rem}
 .sk-name{font-size:.92rem;font-weight:700;color:#f8fafc}
 .sk-items{display:flex;flex-direction:column;gap:.6rem}
-.sk-row{display:flex;align-items:center;justify-content:space-between;font-size:.75rem}
-.sk-nm{color:#94a3b8}
-.sk-track{width:80px;height:4px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}
-.sk-fill{height:100%;border-radius:2px;transition:width 1.1s cubic-bezier(.4,0,.2,1)}
+.sk-row{display:flex;align-items:center;justify-content:space-between;font-size:.74rem}
+.sk-nm{color:#64748b}
+.sk-pct{font-size:.65rem;color:#334155;font-weight:600;min-width:28px;text-align:right}
+.track{width:70px;height:3.5px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden;margin:0 .4rem}
+.fill{height:100%;border-radius:2px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
 
-/* TIMELINE */
-.exp-cols{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
-.tl-heading{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#6366f1;margin-bottom:1.6rem;display:flex;align-items:center;gap:.5rem}
+/* ── TIMELINE ── */
+.tl-cols{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.tl-head{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#6366f1;margin-bottom:1.6rem;display:flex;align-items:center;gap:.5rem}
+.tl-head::before{content:'';width:14px;height:2px;background:var(--c,#6366f1);border-radius:2px}
 .tl{position:relative;padding-left:1.8rem}
-.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,#6366f1,rgba(6,182,212,.2))}
+.tl::before{content:'';position:absolute;left:0;top:6px;bottom:0;width:1px;background:linear-gradient(180deg,rgba(99,102,241,.6),rgba(6,182,212,.1))}
 .tl-item{position:relative;margin-bottom:2.2rem}
-.tl-dot{position:absolute;left:-1.93rem;top:.3rem;width:13px;height:13px;border-radius:50%;border:2px solid #0a0e1a;box-shadow:0 0 0 3px rgba(99,102,241,.35)}
-.tl-date{font-size:.68rem;font-weight:700;color:#6366f1;margin-bottom:.25rem;font-family:monospace;letter-spacing:.05em}
+.tl-dot{position:absolute;left:-2rem;top:.25rem;width:14px;height:14px;border-radius:50%;border:2px solid #070b16;box-shadow:0 0 0 3px rgba(99,102,241,.25)}
+.tl-date{font-family:monospace;font-size:.67rem;font-weight:700;color:#6366f1;margin-bottom:.25rem;letter-spacing:.05em}
 .tl-title{font-size:.92rem;font-weight:700;color:#f8fafc;margin-bottom:.2rem}
-.tl-sub{font-size:.76rem;color:#64748b;margin-bottom:.4rem}
-.tl-desc{font-size:.76rem;color:#475569;line-height:1.78}
+.tl-place{font-size:.76rem;color:#475569;margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem}
+.tl-desc{font-size:.76rem;color:#334155;line-height:1.8}
+.tl-tag{display:inline-flex;font-size:.58rem;font-weight:600;padding:.15rem .5rem;border-radius:3px;background:rgba(99,102,241,.1);color:#818cf8;border:1px solid rgba(99,102,241,.2);margin-right:.3rem;margin-top:.4rem}
 
-/* PROJECTS */
-.proj-list{display:flex;flex-direction:column;gap:2rem}
-.pj{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;transition:.25s;position:relative}
-.pj::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pa),var(--pb));opacity:0;transition:.25s}
-.pj:hover{border-color:rgba(99,102,241,.3);transform:translateY(-3px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+/* ── PROJECTS ── */
+.pj-list{display:flex;flex-direction:column;gap:2rem}
+.pj{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden;transition:.25s;position:relative}
+.pj::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pa),var(--pb));opacity:0;transition:.3s}
+.pj:hover{border-color:rgba(99,102,241,.28);transform:translateY(-3px);box-shadow:0 24px 70px rgba(0,0,0,.45)}
 .pj:hover::before{opacity:1}
-.pj-head{padding:2rem 2rem 0}
-.pj-num{font-size:.67rem;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.35rem;font-family:monospace}
+.pj-top{padding:2rem 2rem 0}
+.pj-meta{display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem;flex-wrap:wrap}
+.pj-num{font-family:monospace;font-size:.65rem;font-weight:700;color:#334155;text-transform:uppercase;letter-spacing:.12em}
+.pj-type{font-size:.62rem;font-weight:600;padding:.18rem .55rem;border-radius:4px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.2)}
 .pj-title{font-size:1.25rem;font-weight:800;color:#f8fafc;margin-bottom:.7rem;letter-spacing:-.025em}
-.pj-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem}
-.pt{font-size:.63rem;font-weight:600;padding:.25rem .65rem;border-radius:5px}
-.pt-v{background:rgba(99,102,241,.15);color:#818cf8;border:1px solid rgba(99,102,241,.25)}
-.pt-c{background:rgba(6,182,212,.12);color:#22d3ee;border:1px solid rgba(6,182,212,.22)}
-.pt-p{background:rgba(139,92,246,.12);color:#c4b5fd;border:1px solid rgba(139,92,246,.22)}
-.pt-o{background:rgba(249,115,22,.12);color:#fb923c;border:1px solid rgba(249,115,22,.22)}
-.pj-desc{font-size:.83rem;color:#94a3b8;line-height:1.85;padding-bottom:1.5rem}
-.pj-metrics{display:flex;gap:.7rem;flex-wrap:wrap;padding:1.2rem 2rem;background:rgba(0,0,0,.2);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
-.pm{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:.7rem 1rem;min-width:100px}
+.tags{display:flex;gap:.38rem;flex-wrap:wrap;margin-bottom:1rem}
+.tag{font-size:.62rem;font-weight:600;padding:.22rem .6rem;border-radius:5px}
+.tv{background:rgba(99,102,241,.12);color:#818cf8;border:1px solid rgba(99,102,241,.22)}
+.tc2{background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.2)}
+.tp{background:rgba(168,85,247,.1);color:#d8b4fe;border:1px solid rgba(168,85,247,.2)}
+.to{background:rgba(249,115,22,.1);color:#fb923c;border:1px solid rgba(249,115,22,.2)}
+.tg{background:rgba(34,197,94,.1);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.pj-desc{font-size:.83rem;color:#64748b;line-height:1.88;padding-bottom:1.5rem}
+.pj-metrics{display:flex;gap:.65rem;flex-wrap:wrap;padding:1.2rem 2rem;background:rgba(0,0,0,.25);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+.pm{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:.7rem 1rem;min-width:95px;transition:.2s}
+.pm:hover{border-color:rgba(99,102,241,.3)}
 .pm b{display:block;font-size:1rem;font-weight:800;background:linear-gradient(135deg,#6366f1,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.02em}
-.pm span{font-size:.6rem;color:#475569;margin-top:.15rem;display:block;text-transform:uppercase;letter-spacing:.06em}
+.pm span{font-size:.58rem;color:#334155;margin-top:.12rem;display:block;text-transform:uppercase;letter-spacing:.07em}
 .pj-feats{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;padding:1.5rem 2rem}
-.pf{display:flex;align-items:flex-start;gap:.6rem;font-size:.78rem;color:#64748b;line-height:1.65}
-.pf-arrow{color:#6366f1;font-weight:700;flex-shrink:0;margin-top:.05rem}
-.pb-pages{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;padding:1.5rem 2rem}
-.pb-pg{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:1rem 1.1rem;transition:.2s}
-.pb-pg:hover{border-color:rgba(99,102,241,.3)}
-.pb-ph{font-size:.8rem;font-weight:700;color:#e2e8f0;margin-bottom:.5rem}
-.pb-pb{font-size:.72rem;color:#64748b;line-height:1.8}
+.pf{display:flex;align-items:flex-start;gap:.55rem;font-size:.78rem;color:#475569;line-height:1.7}
+.pf-arr{color:#6366f1;font-weight:900;flex-shrink:0;margin-top:.05rem;font-size:.8rem}
+.pb-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;padding:1.5rem 2rem}
+.pb-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:1rem 1.1rem;transition:.2s}
+.pb-card:hover{border-color:rgba(99,102,241,.28)}
+.pb-title{font-size:.8rem;font-weight:700;color:#e2e8f0;margin-bottom:.5rem}
+.pb-body{font-size:.71rem;color:#475569;line-height:1.82}
+.pj-footer{padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.05)}
+.pj-link{font-size:.75rem;font-weight:700;color:#6366f1;display:flex;align-items:center;gap:.35rem;text-decoration:none;transition:.2s}
+.pj-link:hover{color:#a5b4fc}
+.upload-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:600;padding:.38rem .85rem;border:1px dashed rgba(99,102,241,.35);border-radius:6px;color:#475569;cursor:pointer;transition:.2s;background:rgba(99,102,241,.04)}
+.upload-btn:hover{border-color:#6366f1;color:#818cf8}
 
-/* CERTS */
+/* ── CERTS ── */
 .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
-.cert{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:11px;padding:1.2rem 1.3rem;display:flex;align-items:center;gap:.9rem;transition:.25s;position:relative;overflow:hidden}
-.cert::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--ca),var(--cb));transform:scaleX(0);transition:.3s;transform-origin:left}
-.cert:hover{border-color:rgba(99,102,241,.3);transform:translateY(-3px)}
+.cert{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1.3rem;display:flex;align-items:flex-start;gap:.9rem;transition:.25s;position:relative;overflow:hidden;cursor:default}
+.cert::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--ca),var(--cb));transform:scaleX(0);transition:.35s;transform-origin:left}
+.cert:hover{border-color:rgba(99,102,241,.28);transform:translateY(-3px);box-shadow:0 12px 35px rgba(0,0,0,.3)}
 .cert:hover::after{transform:scaleX(1)}
-.cert-ic{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
-.cert-name{font-size:.82rem;font-weight:700;color:#e2e8f0}
-.cert-issuer{font-size:.68rem;color:#64748b;margin-top:.15rem}
-.cert-yr{font-size:.65rem;font-weight:700;color:#6366f1;margin-top:.3rem}
+.cert-ico{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;margin-top:.1rem}
+.cert-body{}
+.cert-name{font-size:.83rem;font-weight:700;color:#e2e8f0;margin-bottom:.2rem;line-height:1.35}
+.cert-issuer{font-size:.68rem;color:#475569;margin-bottom:.3rem}
+.cert-yr{font-size:.64rem;font-weight:700;color:#6366f1;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.2);border-radius:4px;padding:.1rem .45rem;display:inline-block}
 
-/* CONTACT */
-.contact-wrap{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;position:relative;overflow:hidden}
-.contact-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#6366f1,#8b5cf6,#06b6d4)}
+/* ── CONTACT ── */
+.contact-box{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;position:relative;overflow:hidden}
+.contact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#6366f1,#a855f7,#06b6d4)}
 .c-h{font-size:1.7rem;font-weight:800;letter-spacing:-.03em;color:#f8fafc;margin-bottom:.4rem}
-.c-h span{background:linear-gradient(135deg,#6366f1,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.c-p{font-size:.84rem;color:#64748b;line-height:1.9;margin-bottom:1.8rem}
+.c-h em{font-style:normal;background:linear-gradient(135deg,#6366f1,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.c-p{font-size:.84rem;color:#475569;line-height:1.9;margin-bottom:1.8rem}
 .c-links{display:flex;flex-direction:column;gap:.6rem}
-.c-lnk{display:flex;align-items:center;gap:.9rem;padding:.8rem 1.1rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:9px;text-decoration:none;transition:.2s}
-.c-lnk:hover{border-color:rgba(99,102,241,.4);transform:translateX(5px);background:rgba(99,102,241,.07)}
-.c-ic{width:36px;height:36px;border-radius:8px;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.2);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
-.c-lbl{font-size:.6rem;color:#475569;text-transform:uppercase;letter-spacing:.08em}
-.c-val{font-size:.8rem;color:#e2e8f0;font-weight:500}
-.cf{display:flex;flex-direction:column;gap:.8rem}
-.cf-2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
-.cf input,.cf textarea,.cf select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#e2e8f0;font-family:inherit;font-size:.82rem;padding:.78rem 1rem;border-radius:8px;outline:none;transition:.2s;resize:none}
-.cf input:focus,.cf textarea:focus,.cf select:focus{border-color:#6366f1;background:rgba(99,102,241,.08)}
-.cf input::placeholder,.cf textarea::placeholder{color:#334155}
-.cf select option{background:#0d1117;color:#e2e8f0}
+.c-lnk{display:flex;align-items:center;gap:.85rem;padding:.78rem 1rem;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:9px;text-decoration:none;transition:.22s}
+.c-lnk:hover{border-color:rgba(99,102,241,.35);transform:translateX(5px);background:rgba(99,102,241,.06)}
+.c-ico{width:36px;height:36px;border-radius:8px;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.18);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.c-lbl{font-size:.6rem;color:#334155;text-transform:uppercase;letter-spacing:.08em}
+.c-val{font-size:.8rem;color:#94a3b8;font-weight:500}
+.cf{display:flex;flex-direction:column;gap:.75rem}
+.cf-2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.cf input,.cf textarea,.cf select{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);color:#e2e8f0;font-family:inherit;font-size:.81rem;padding:.78rem 1rem;border-radius:8px;outline:none;transition:.2s;resize:none;-webkit-appearance:none}
+.cf input:focus,.cf textarea:focus,.cf select:focus{border-color:#6366f1;background:rgba(99,102,241,.07)}
+.cf input::placeholder,.cf textarea::placeholder{color:#1e293b}
+.cf select option{background:#0d1117}
 .cf textarea{min-height:120px}
-.cf-btn{padding:.78rem 1.8rem;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:.83rem;font-weight:700;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:.5rem;letter-spacing:.02em}
-.cf-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(99,102,241,.4)}
+.cf-btn{padding:.78rem 1.8rem;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:.83rem;font-weight:700;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:.5rem}
+.cf-btn:hover{transform:translateY(-2px);box-shadow:0 14px 35px rgba(99,102,241,.42)}
 
-footer{border-top:1px solid rgba(255,255,255,.07);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;font-size:.73rem;color:#334155;max-width:100%}
-.ft-links{display:flex;gap:1.5rem}
-.ft-links a{color:#334155;text-decoration:none;transition:.2s}
-.ft-links a:hover{color:#6366f1}
+/* FOOTER */
+footer{border-top:1px solid rgba(255,255,255,.06);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;font-size:.72rem;color:#1e293b}
+.ft-r{display:flex;gap:1.5rem}
+.ft-r a{color:#1e293b;text-decoration:none;transition:.2s}
+.ft-r a:hover{color:#6366f1}
 
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
 .reveal.on{opacity:1;transform:none}
-.d1{transition-delay:.09s}.d2{transition-delay:.18s}.d3{transition-delay:.27s}.d4{transition-delay:.36s}
+.d1{transition-delay:.09s}.d2{transition-delay:.17s}.d3{transition-delay:.26s}.d4{transition-delay:.34s}
 
-@media(max-width:940px){
-  .hero-inner,.about-grid,.exp-cols,.contact-wrap{grid-template-columns:1fr;gap:2.5rem}
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero-inner,.about-grid,.tl-cols,.contact-box{grid-template-columns:1fr;gap:2.5rem}
   .skills-grid{grid-template-columns:1fr 1fr}
   .cert-grid{grid-template-columns:1fr 1fr}
-  .pj-feats,.pb-pages,.cf-2{grid-template-columns:1fr}
-  .hero-wrap{padding-top:90px}
+  .pj-feats,.pb-grid,.cf-2{grid-template-columns:1fr}
+  .hero-wrap{padding-top:88px}
+  .profile-card{max-width:400px}
 }
 @media(max-width:580px){
-  .navl{display:none}
+  .navl,.nav-resume{display:none}
   .skills-grid,.cert-grid{grid-template-columns:1fr 1fr}
-  .stat-boxes{grid-template-columns:1fr 1fr}
+  .boxes{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 <div id="bar"></div>
 
+<!-- ═══ NAV ═══ -->
 <nav>
-  <a class="logo" href="#">Santhosh<span>.dev</span></a>
+  <a class="logo" href="#"><div class="logo-dot"></div>Santhosh<span>.dev</span></a>
   <ul class="navl">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -207,20 +256,25 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:2rem 5%;display:flex;a
     <li><a href="#certifications">Certs</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a class="nav-btn" href="mailto:sksanthosh845@gmail.com">Hire Me ✦</a>
+  <div style="display:flex;gap:.6rem;align-items:center">
+    <a class="nav-resume" href="#">Download CV</a>
+    <a class="nav-hire" href="mailto:sksanthosh845@gmail.com">Hire Me ✦</a>
+  </div>
 </nav>
 
-<!-- HERO -->
+<!-- ═══ HERO ═══ -->
 <div class="hero-wrap">
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
   <div class="hero-inner">
     <div>
-      <div class="hero-badge"><div class="bdot"></div>Open to Opportunities · Madurai, TN</div>
+      <div class="hero-badge"><div class="bdot"></div>Open to Opportunities · Madurai, TN · India</div>
       <h1>Hi, I'm<br/><span class="grad">Santhosh M</span></h1>
       <div class="role-tag">Data Analyst &amp; BI Report Developer</div>
-      <p class="hero-p">BSc Computer Science graduate (2025) who turns raw data into clear, actionable insights using <strong>Python, Power BI, and SQL</strong> — ready for MNC-level challenges.</p>
+      <p class="hero-p">BSc Computer Science graduate (2025) who turns raw data into clear, actionable insights using <strong>Python, Power BI &amp; SQL</strong> — ready for MNC-level challenges from Day 1.</p>
       <div class="btns">
-        <a class="btn-g" href="#projects">View Projects ↓</a>
-        <a class="btn-o" href="#contact">Get in Touch →</a>
+        <a class="btn-primary" href="#projects">View Projects ↓</a>
+        <a class="btn-ghost" href="#contact">Get in Touch →</a>
       </div>
       <div class="hnums">
         <div class="hn"><b>3+</b><span>Projects</span></div>
@@ -229,48 +283,101 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:2rem 5%;display:flex;a
         <div class="hn"><b>2025</b><span>Batch</span></div>
       </div>
     </div>
-    <div class="terminal">
-      <div class="t-bar">
-        <div class="td" style="background:#ff5f57"></div>
-        <div class="td" style="background:#febc2e;margin-left:4px"></div>
-        <div class="td" style="background:#28c840;margin-left:4px"></div>
-        <span class="t-title">dashboard_output.py</span>
+
+    <!-- PROFILE CARD -->
+    <div class="profile-card reveal d1">
+      <div class="profile-top">
+        <!-- Human Avatar (SVG) -->
+        <div class="avatar-wrap">
+          <div class="avatar-ring">
+            <div class="avatar-inner">
+              <svg class="avatar-svg" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#1a1f35"/>
+                    <stop offset="100%" stop-color="#0d1117"/>
+                  </linearGradient>
+                  <linearGradient id="skinGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#c68642"/>
+                    <stop offset="100%" stop-color="#a0522d"/>
+                  </linearGradient>
+                  <linearGradient id="shirtGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#6366f1"/>
+                    <stop offset="100%" stop-color="#4f46e5"/>
+                  </linearGradient>
+                  <clipPath id="circle"><circle cx="55" cy="55" r="55"/></clipPath>
+                </defs>
+                <rect width="110" height="110" fill="url(#bgGrad)" clip-path="url(#circle)"/>
+                <!-- Subtle grid bg -->
+                <line x1="0" y1="55" x2="110" y2="55" stroke="rgba(99,102,241,.06)" stroke-width="1"/>
+                <line x1="55" y1="0" x2="55" y2="110" stroke="rgba(99,102,241,.06)" stroke-width="1"/>
+                <!-- Shirt / body -->
+                <path d="M10 110 Q20 78 35 72 Q43 68 55 70 Q67 68 75 72 Q90 78 100 110 Z" fill="url(#shirtGrad)"/>
+                <!-- Collar white -->
+                <path d="M46 70 L55 80 L64 70 Q60 74 55 73 Q50 74 46 70Z" fill="#fff" opacity=".9"/>
+                <!-- Neck -->
+                <rect x="48" y="60" width="14" height="14" rx="4" fill="url(#skinGrad)"/>
+                <!-- Head -->
+                <ellipse cx="55" cy="46" rx="20" ry="22" fill="url(#skinGrad)"/>
+                <!-- Hair -->
+                <path d="M35 40 Q35 20 55 22 Q75 20 75 40 Q72 28 55 28 Q38 28 35 40Z" fill="#1a0a00"/>
+                <!-- Ears -->
+                <ellipse cx="35" cy="47" rx="3.5" ry="4.5" fill="#a0522d"/>
+                <ellipse cx="75" cy="47" rx="3.5" ry="4.5" fill="#a0522d"/>
+                <!-- Eyes -->
+                <ellipse cx="47" cy="45" rx="3.2" ry="3.5" fill="#fff"/>
+                <ellipse cx="63" cy="45" rx="3.2" ry="3.5" fill="#fff"/>
+                <circle cx="48" cy="45.5" r="2" fill="#1a0a00"/>
+                <circle cx="64" cy="45.5" r="2" fill="#1a0a00"/>
+                <circle cx="48.7" cy="44.5" r=".6" fill="#fff"/>
+                <circle cx="64.7" cy="44.5" r=".6" fill="#fff"/>
+                <!-- Eyebrows -->
+                <path d="M44 41 Q47 39.5 50 41" stroke="#1a0a00" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+                <path d="M60 41 Q63 39.5 66 41" stroke="#1a0a00" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+                <!-- Nose -->
+                <path d="M53 48 Q52 53 54 54.5 Q55 55 56 54.5 Q58 53 57 48" stroke="#8b5a2b" stroke-width="1" fill="none" stroke-linecap="round"/>
+                <!-- Smile -->
+                <path d="M48 58 Q55 63 62 58" stroke="#7a3b1e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="avail-badge"></div>
+        </div>
+        <div class="profile-name">Santhosh M</div>
+        <div class="profile-role">Data Analyst · BI Developer</div>
+        <div class="profile-loc">📍 Madurai, Tamil Nadu, India</div>
+        <div class="profile-pills">
+          <span class="pill">Python</span><span class="pill">Power BI</span><span class="pill">SQL</span>
+          <span class="pill">DAX</span><span class="pill">Excel</span><span class="pill">ML</span>
+        </div>
       </div>
-      <div class="t-body">
-        <div><span class="tc-d">$</span> <span class="tc-g">python</span> <span class="tc-w">sales_dashboard.py</span></div>
-        <div><span class="tc-d">→ Loading data files...</span></div>
-        <div>&nbsp;</div>
-        <div class="t-row"><span class="tc-d">Total Revenue</span><span class="tc-g">₹20,95,080</span></div>
-        <div class="t-row"><span class="tc-d">Total Orders</span><span class="tc-b">100</span></div>
-        <div class="t-row"><span class="tc-d">Avg Order Value</span><span class="tc-y">₹20,950.80</span></div>
-        <div class="t-row"><span class="tc-d">Charts Rendered</span><span class="tc-m">3 / 3 ✓</span></div>
-        <div>&nbsp;</div>
-        <div><span class="tc-d"># Power BI — Placement Report</span></div>
-        <div class="t-row"><span class="tc-d">Placement Rate</span><span class="tc-g">70%</span></div>
-        <div class="t-row"><span class="tc-d">Students Analyzed</span><span class="tc-b">200</span></div>
-        <div class="t-row"><span class="tc-d">Top Package</span><span class="tc-y">28.83 LPA</span></div>
-        <div class="t-row"><span class="tc-d">Top Job Role</span><span class="tc-m">Data Analyst</span></div>
-        <div class="t-row"><span class="tc-d">Top Recruiter</span><span class="tc-g">Byju's (18)</span></div>
-        <div>&nbsp;</div>
-        <div><span class="tc-g">✔ All dashboards loaded</span><span class="cursor"></span></div>
+      <div class="profile-stats">
+        <div class="ps"><b>3+</b><span>Projects</span></div>
+        <div class="ps"><b>6+</b><span>Certs</span></div>
+        <div class="ps"><b>2025</b><span>Grad</span></div>
+      </div>
+      <div class="terminal-mini">
+        <div><span class="tc-d">$</span> <span class="tc-g">python</span> <span style="color:#64748b">run_dashboard.py</span></div>
+        <div class="t-row-m"><span class="tc-d">Revenue</span><span class="tc-g">₹20.9L ✓</span></div>
+        <div class="t-row-m"><span class="tc-d">Placement</span><span class="tc-b">70% placed</span></div>
+        <div class="t-row-m"><span class="tc-d">Status</span><span class="tc-m">All clear<span class="cursor"></span></span></div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="hr"></div>
+<div class="divider"></div>
+<main>
 
-<main style="max-width:100%">
-
-<!-- ABOUT -->
+<!-- ═══ ABOUT ═══ -->
 <section class="section" id="about">
-  <div class="reveal"><div class="sec-label">About Me</div><h2 class="sec-h">Who I Am</h2></div>
+  <div class="reveal"><div class="sec-eyebrow">About Me</div><h2 class="sec-h">Who I Am</h2></div>
   <div class="about-grid">
     <div class="reveal">
-      <p class="ap">I'm <strong>Santhosh M</strong>, a Computer Science graduate from <strong>The American College, Madurai</strong> (2025 batch). I'm passionate about the full data pipeline — from messy raw files to polished dashboards that help businesses make smarter decisions.</p>
-      <p class="ap">My two major projects — a <strong>Python Sales Dashboard</strong> with real-time KPI computation and a <strong>4-page Power BI Placement Analytics report</strong> — represent end-to-end experience with cleaning, modeling, visualizing, and communicating data.</p>
-      <p class="ap">Actively targeting <strong>entry-level Data Analyst, Reporting Analyst, and BI Analyst roles</strong> at top MNCs — ready to contribute from Day 1.</p>
-      <div class="info-list">
+      <p class="ap">I'm <strong>Santhosh M</strong>, a Computer Science graduate from <strong>The American College, Madurai</strong> (2025 batch). I'm passionate about the full data pipeline — from cleaning messy raw files all the way to polished, interactive dashboards that help businesses make faster, smarter decisions.</p>
+      <p class="ap">My two major projects — a <strong>Python Sales Dashboard</strong> with real-time KPI computation and a <strong>4-page Power BI Placement Analytics report</strong> — represent hands-on, end-to-end experience with data wrangling, modeling, visualization, and storytelling.</p>
+      <p class="ap">I'm actively targeting <strong>Data Analyst, Reporting Analyst, and BI Analyst roles</strong> at top MNCs — focused, driven, and ready to contribute from Day 1.</p>
+      <div class="info-grid">
         <div class="info-r"><span class="info-k">📍 Location</span><span class="info-v">Madurai, Tamil Nadu, India</span></div>
         <div class="info-r"><span class="info-k">🎓 Education</span><span class="info-v">BSc Computer Science — The American College, 2025</span></div>
         <div class="info-r"><span class="info-k">📧 Email</span><span class="info-v">sksanthosh845@gmail.com</span></div>
@@ -280,175 +387,171 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:2rem 5%;display:flex;a
       </div>
     </div>
     <div class="reveal d2">
-      <div class="stat-boxes">
-        <div class="sb"><b>3+</b><span>Projects</span></div>
-        <div class="sb"><b>6+</b><span>Certifications</span></div>
-        <div class="sb"><b>4</b><span>BI Pages</span></div>
-        <div class="sb"><b>200</b><span>Rows Analyzed</span></div>
+      <div class="boxes">
+        <div class="bx"><b>3+</b><span>Projects</span></div>
+        <div class="bx"><b>6+</b><span>Certifications</span></div>
+        <div class="bx"><b>4</b><span>BI Pages</span></div>
+        <div class="bx"><b>200+</b><span>Records Analyzed</span></div>
+      </div>
+      <div style="font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#334155;margin-bottom:.8rem">Professional Strengths</div>
+      <div class="soft-skills">
+        <div class="ss-row"><span class="ss-icon">🧹</span><span class="ss-label">Data Cleaning &amp; Wrangling</span></div>
+        <div class="ss-row"><span class="ss-icon">📊</span><span class="ss-label">Dashboard &amp; Report Design</span></div>
+        <div class="ss-row"><span class="ss-icon">📐</span><span class="ss-label">Attention to Detail</span></div>
+        <div class="ss-row"><span class="ss-icon">📢</span><span class="ss-label">Data Storytelling</span></div>
+        <div class="ss-row"><span class="ss-icon">⚡</span><span class="ss-label">Fast Self-Learning</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="hr"></div>
+<div class="divider"></div>
 
-<!-- SKILLS -->
+<!-- ═══ SKILLS ═══ -->
 <section class="section" id="skills">
-  <div class="reveal"><div class="sec-label">Technical Skills</div><h2 class="sec-h">What I Work With</h2><p class="sec-p">Core tools covering the full data analytics workflow — from ingestion to insight delivery.</p></div>
+  <div class="reveal"><div class="sec-eyebrow">Technical Skills</div><h2 class="sec-h">What I Work With</h2><p class="sec-sub">Core tools covering the full data analytics workflow — from ingestion to insight delivery.</p></div>
   <div class="skills-grid">
 
-    <div class="sk-card reveal" style="--a:#6366f1;--b:#8b5cf6">
-      <div class="sk-head">
-        <div class="sk-icon" style="background:rgba(99,102,241,.15)">🐍</div>
-        <div><div class="sk-cat" style="color:#818cf8">Programming</div><div class="sk-name">Python</div></div>
-      </div>
+    <div class="sk reveal" style="--a:#6366f1;--b:#8b5cf6">
+      <div class="sk-head"><div class="sk-ico" style="background:rgba(99,102,241,.15)">🐍</div><div><div class="sk-cat" style="color:#818cf8">Programming</div><div class="sk-name">Python</div></div></div>
       <div class="sk-items">
-        <div class="sk-row"><span class="sk-nm">Pandas</span><div class="sk-track"><div class="sk-fill" style="width:80%;background:linear-gradient(90deg,#6366f1,#8b5cf6)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">Matplotlib</span><div class="sk-track"><div class="sk-fill" style="width:72%;background:linear-gradient(90deg,#6366f1,#8b5cf6)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">Tkinter GUI</span><div class="sk-track"><div class="sk-fill" style="width:65%;background:linear-gradient(90deg,#6366f1,#8b5cf6)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">OpenPyXL</span><div class="sk-track"><div class="sk-fill" style="width:70%;background:linear-gradient(90deg,#6366f1,#8b5cf6)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">Data Cleaning</span><div class="sk-track"><div class="sk-fill" style="width:78%;background:linear-gradient(90deg,#6366f1,#8b5cf6)"></div></div></div>
+        <div class="sk-row"><span class="sk-nm">Pandas</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#6366f1,#8b5cf6);--w:80%"></div></div><span class="sk-pct">80%</span></div>
+        <div class="sk-row"><span class="sk-nm">Matplotlib</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#6366f1,#8b5cf6);--w:72%"></div></div><span class="sk-pct">72%</span></div>
+        <div class="sk-row"><span class="sk-nm">Tkinter GUI</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#6366f1,#8b5cf6);--w:65%"></div></div><span class="sk-pct">65%</span></div>
+        <div class="sk-row"><span class="sk-nm">OpenPyXL</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#6366f1,#8b5cf6);--w:70%"></div></div><span class="sk-pct">70%</span></div>
+        <div class="sk-row"><span class="sk-nm">Data Cleaning</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#6366f1,#8b5cf6);--w:78%"></div></div><span class="sk-pct">78%</span></div>
       </div>
     </div>
 
-    <div class="sk-card reveal d1" style="--a:#06b6d4;--b:#0891b2">
-      <div class="sk-head">
-        <div class="sk-icon" style="background:rgba(6,182,212,.12)">🗄️</div>
-        <div><div class="sk-cat" style="color:#22d3ee">Database</div><div class="sk-name">SQL & MySQL</div></div>
-      </div>
+    <div class="sk reveal d1" style="--a:#06b6d4;--b:#0891b2">
+      <div class="sk-head"><div class="sk-ico" style="background:rgba(6,182,212,.12)">🗄️</div><div><div class="sk-cat" style="color:#22d3ee">Database</div><div class="sk-name">SQL &amp; MySQL</div></div></div>
       <div class="sk-items">
-        <div class="sk-row"><span class="sk-nm">Joins & Subqueries</span><div class="sk-track"><div class="sk-fill" style="width:75%;background:linear-gradient(90deg,#06b6d4,#0891b2)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">Aggregation</span><div class="sk-track"><div class="sk-fill" style="width:80%;background:linear-gradient(90deg,#06b6d4,#0891b2)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">Filtering & Sorting</span><div class="sk-track"><div class="sk-fill" style="width:82%;background:linear-gradient(90deg,#06b6d4,#0891b2)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">Group By</span><div class="sk-track"><div class="sk-fill" style="width:78%;background:linear-gradient(90deg,#06b6d4,#0891b2)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">MySQL Workbench</span><div class="sk-track"><div class="sk-fill" style="width:65%;background:linear-gradient(90deg,#06b6d4,#0891b2)"></div></div></div>
+        <div class="sk-row"><span class="sk-nm">Joins &amp; Subqueries</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#06b6d4,#0891b2);--w:75%"></div></div><span class="sk-pct">75%</span></div>
+        <div class="sk-row"><span class="sk-nm">Aggregation</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#06b6d4,#0891b2);--w:80%"></div></div><span class="sk-pct">80%</span></div>
+        <div class="sk-row"><span class="sk-nm">Filtering &amp; Sorting</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#06b6d4,#0891b2);--w:82%"></div></div><span class="sk-pct">82%</span></div>
+        <div class="sk-row"><span class="sk-nm">Group By</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#06b6d4,#0891b2);--w:78%"></div></div><span class="sk-pct">78%</span></div>
+        <div class="sk-row"><span class="sk-nm">MySQL Workbench</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#06b6d4,#0891b2);--w:65%"></div></div><span class="sk-pct">65%</span></div>
       </div>
     </div>
 
-    <div class="sk-card reveal d2" style="--a:#f59e0b;--b:#d97706">
-      <div class="sk-head">
-        <div class="sk-icon" style="background:rgba(245,158,11,.12)">📊</div>
-        <div><div class="sk-cat" style="color:#fbbf24">BI & Visualization</div><div class="sk-name">Power BI</div></div>
-      </div>
+    <div class="sk reveal d2" style="--a:#f59e0b;--b:#d97706">
+      <div class="sk-head"><div class="sk-ico" style="background:rgba(245,158,11,.12)">📊</div><div><div class="sk-cat" style="color:#fbbf24">BI &amp; Visualization</div><div class="sk-name">Power BI</div></div></div>
       <div class="sk-items">
-        <div class="sk-row"><span class="sk-nm">DAX Formulas</span><div class="sk-track"><div class="sk-fill" style="width:75%;background:linear-gradient(90deg,#f59e0b,#d97706)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">Power Query</span><div class="sk-track"><div class="sk-fill" style="width:72%;background:linear-gradient(90deg,#f59e0b,#d97706)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">KPI Cards</span><div class="sk-track"><div class="sk-fill" style="width:85%;background:linear-gradient(90deg,#f59e0b,#d97706)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">Multi-page Reports</span><div class="sk-track"><div class="sk-fill" style="width:80%;background:linear-gradient(90deg,#f59e0b,#d97706)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">Slicers & Filters</span><div class="sk-track"><div class="sk-fill" style="width:78%;background:linear-gradient(90deg,#f59e0b,#d97706)"></div></div></div>
+        <div class="sk-row"><span class="sk-nm">DAX Formulas</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#f59e0b,#d97706);--w:75%"></div></div><span class="sk-pct">75%</span></div>
+        <div class="sk-row"><span class="sk-nm">Power Query</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#f59e0b,#d97706);--w:72%"></div></div><span class="sk-pct">72%</span></div>
+        <div class="sk-row"><span class="sk-nm">KPI Cards</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#f59e0b,#d97706);--w:85%"></div></div><span class="sk-pct">85%</span></div>
+        <div class="sk-row"><span class="sk-nm">Multi-page Reports</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#f59e0b,#d97706);--w:80%"></div></div><span class="sk-pct">80%</span></div>
+        <div class="sk-row"><span class="sk-nm">Slicers &amp; Filters</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#f59e0b,#d97706);--w:78%"></div></div><span class="sk-pct">78%</span></div>
       </div>
     </div>
 
-    <div class="sk-card reveal" style="--a:#10b981;--b:#059669">
-      <div class="sk-head">
-        <div class="sk-icon" style="background:rgba(16,185,129,.12)">📗</div>
-        <div><div class="sk-cat" style="color:#34d399">Spreadsheets</div><div class="sk-name">Excel</div></div>
-      </div>
+    <div class="sk reveal" style="--a:#10b981;--b:#059669">
+      <div class="sk-head"><div class="sk-ico" style="background:rgba(16,185,129,.12)">📗</div><div><div class="sk-cat" style="color:#34d399">Spreadsheets</div><div class="sk-name">Excel</div></div></div>
       <div class="sk-items">
-        <div class="sk-row"><span class="sk-nm">Pivot Tables</span><div class="sk-track"><div class="sk-fill" style="width:78%;background:linear-gradient(90deg,#10b981,#059669)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">Formulas & Functions</span><div class="sk-track"><div class="sk-fill" style="width:80%;background:linear-gradient(90deg,#10b981,#059669)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">Data Formatting</span><div class="sk-track"><div class="sk-fill" style="width:82%;background:linear-gradient(90deg,#10b981,#059669)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">CSV Handling</span><div class="sk-track"><div class="sk-fill" style="width:85%;background:linear-gradient(90deg,#10b981,#059669)"></div></div></div>
+        <div class="sk-row"><span class="sk-nm">Pivot Tables</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#10b981,#059669);--w:78%"></div></div><span class="sk-pct">78%</span></div>
+        <div class="sk-row"><span class="sk-nm">Formulas &amp; Functions</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#10b981,#059669);--w:80%"></div></div><span class="sk-pct">80%</span></div>
+        <div class="sk-row"><span class="sk-nm">Data Formatting</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#10b981,#059669);--w:82%"></div></div><span class="sk-pct">82%</span></div>
+        <div class="sk-row"><span class="sk-nm">CSV Handling</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#10b981,#059669);--w:85%"></div></div><span class="sk-pct">85%</span></div>
       </div>
     </div>
 
-    <div class="sk-card reveal d1" style="--a:#ec4899;--b:#db2777">
-      <div class="sk-head">
-        <div class="sk-icon" style="background:rgba(236,72,153,.12)">🤖</div>
-        <div><div class="sk-cat" style="color:#f472b6">Machine Learning</div><div class="sk-name">ML Basics</div></div>
-      </div>
+    <div class="sk reveal d1" style="--a:#ec4899;--b:#db2777">
+      <div class="sk-head"><div class="sk-ico" style="background:rgba(236,72,153,.12)">🤖</div><div><div class="sk-cat" style="color:#f472b6">Machine Learning</div><div class="sk-name">ML Basics</div></div></div>
       <div class="sk-items">
-        <div class="sk-row"><span class="sk-nm">Linear Regression</span><div class="sk-track"><div class="sk-fill" style="width:60%;background:linear-gradient(90deg,#ec4899,#db2777)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">KNN Algorithm</span><div class="sk-track"><div class="sk-fill" style="width:58%;background:linear-gradient(90deg,#ec4899,#db2777)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">Scikit-learn</span><div class="sk-track"><div class="sk-fill" style="width:55%;background:linear-gradient(90deg,#ec4899,#db2777)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">Model Evaluation</span><div class="sk-track"><div class="sk-fill" style="width:52%;background:linear-gradient(90deg,#ec4899,#db2777)"></div></div></div>
+        <div class="sk-row"><span class="sk-nm">Linear Regression</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#ec4899,#db2777);--w:60%"></div></div><span class="sk-pct">60%</span></div>
+        <div class="sk-row"><span class="sk-nm">KNN Algorithm</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#ec4899,#db2777);--w:58%"></div></div><span class="sk-pct">58%</span></div>
+        <div class="sk-row"><span class="sk-nm">Scikit-learn</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#ec4899,#db2777);--w:55%"></div></div><span class="sk-pct">55%</span></div>
+        <div class="sk-row"><span class="sk-nm">Model Evaluation</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#ec4899,#db2777);--w:52%"></div></div><span class="sk-pct">52%</span></div>
       </div>
     </div>
 
-    <div class="sk-card reveal d2" style="--a:#f97316;--b:#ea580c">
-      <div class="sk-head">
-        <div class="sk-icon" style="background:rgba(249,115,22,.12)">🌐</div>
-        <div><div class="sk-cat" style="color:#fb923c">Web Development</div><div class="sk-name">Web Basics</div></div>
-      </div>
+    <div class="sk reveal d2" style="--a:#f97316;--b:#ea580c">
+      <div class="sk-head"><div class="sk-ico" style="background:rgba(249,115,22,.12)">🌐</div><div><div class="sk-cat" style="color:#fb923c">Web Development</div><div class="sk-name">Web Basics</div></div></div>
       <div class="sk-items">
-        <div class="sk-row"><span class="sk-nm">HTML</span><div class="sk-track"><div class="sk-fill" style="width:72%;background:linear-gradient(90deg,#f97316,#ea580c)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">PHP</span><div class="sk-track"><div class="sk-fill" style="width:60%;background:linear-gradient(90deg,#f97316,#ea580c)"></div></div></div>
-        <div class="sk-row"><span class="sk-nm">MySQL (Web)</span><div class="sk-track"><div class="sk-fill" style="width:65%;background:linear-gradient(90deg,#f97316,#ea580c)"></div></div></div>
+        <div class="sk-row"><span class="sk-nm">HTML</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#f97316,#ea580c);--w:72%"></div></div><span class="sk-pct">72%</span></div>
+        <div class="sk-row"><span class="sk-nm">PHP</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#f97316,#ea580c);--w:60%"></div></div><span class="sk-pct">60%</span></div>
+        <div class="sk-row"><span class="sk-nm">MySQL (Web)</span><div class="track"><div class="fill" style="background:linear-gradient(90deg,#f97316,#ea580c);--w:65%"></div></div><span class="sk-pct">65%</span></div>
       </div>
     </div>
 
   </div>
 </section>
 
-<div class="hr"></div>
+<div class="divider"></div>
 
-<!-- TIMELINE -->
+<!-- ═══ TIMELINE ═══ -->
 <section class="section" id="experience">
-  <div class="reveal"><div class="sec-label">Background</div><h2 class="sec-h">Education & Timeline</h2><p class="sec-p">My academic journey and project milestones that shaped my data analytics skills.</p></div>
-  <div class="exp-cols">
+  <div class="reveal"><div class="sec-eyebrow">Background</div><h2 class="sec-h">Education &amp; Timeline</h2><p class="sec-sub">Academic milestones and project history that built my data analytics foundation.</p></div>
+  <div class="tl-cols">
     <div class="reveal">
-      <div class="tl-heading">🎓 Education</div>
+      <div class="tl-head" style="--c:#6366f1">🎓 Education</div>
       <div class="tl">
         <div class="tl-item">
           <div class="tl-dot" style="background:#6366f1"></div>
           <div class="tl-date">2022 – 2025</div>
           <div class="tl-title">BSc Computer Science</div>
-          <div class="tl-sub">The American College, Madurai</div>
-          <div class="tl-desc">Studied programming, databases, web development, and ML fundamentals. Built 3 major projects and earned 6 certifications across Python, Power BI, Excel, and ML.</div>
+          <div class="tl-place">🏛️ The American College, Madurai</div>
+          <div class="tl-desc">Studied programming, databases, web development and ML fundamentals. Built 3 major real-world projects and earned 6 industry-recognized certifications across Python, Power BI, Excel, and Machine Learning.</div>
+          <div><span class="tl-tag">Python</span><span class="tl-tag">SQL</span><span class="tl-tag">Power BI</span><span class="tl-tag">ML</span></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot" style="background:#06b6d4"></div>
           <div class="tl-date">2020 – 2022</div>
           <div class="tl-title">Higher Secondary (HSC)</div>
-          <div class="tl-sub">Science stream · Madurai, Tamil Nadu</div>
-          <div class="tl-desc">Science stream with Computer Science elective. Developed foundational interest in programming and analytical thinking.</div>
+          <div class="tl-place">🏫 Science Stream · Madurai, Tamil Nadu</div>
+          <div class="tl-desc">Science stream with Computer Science as elective. Developed foundational interest in programming, logic and analytical problem-solving.</div>
         </div>
       </div>
     </div>
     <div class="reveal d2">
-      <div class="tl-heading">🛠️ Project Timeline</div>
+      <div class="tl-head" style="--c:#a855f7">🛠️ Project History</div>
       <div class="tl">
         <div class="tl-item">
           <div class="tl-dot" style="background:#6366f1"></div>
           <div class="tl-date">Dec 2025</div>
           <div class="tl-title">Python Sales Dashboard</div>
-          <div class="tl-sub">Python · Pandas · Matplotlib · Tkinter</div>
-          <div class="tl-desc">Full desktop app loading CSV/Excel files, auto-computing KPIs, and rendering 3 dynamic charts inside a custom GUI. Modular architecture for easy extension.</div>
+          <div class="tl-place">🐍 Python · Pandas · Matplotlib · Tkinter</div>
+          <div class="tl-desc">Full desktop app loading CSV/Excel files, auto-computing KPIs, and rendering 3 dynamic charts in a custom GUI. Modular architecture built for easy extension.</div>
+          <div><span class="tl-tag">Data Analysis</span><span class="tl-tag">GUI App</span><span class="tl-tag">KPI Dashboard</span></div>
         </div>
         <div class="tl-item">
-          <div class="tl-dot" style="background:#8b5cf6"></div>
-          <div class="tl-date">2025</div>
+          <div class="tl-dot" style="background:#a855f7"></div>
+          <div class="tl-date">Mar 2026</div>
           <div class="tl-title">Power BI Placement Analytics</div>
-          <div class="tl-sub">Power BI · DAX · Power Query</div>
-          <div class="tl-desc">4-page BI report on 200 student records covering placement rates, salary bands, job roles, gender analysis, and recruiter performance with interactive slicers.</div>
+          <div class="tl-place">📊 Power BI · DAX · Power Query</div>
+          <div class="tl-desc">4-page interactive BI report on 200 student records covering placement rates, salary bands, job roles, gender analysis, and recruiter performance with interactive slicers and DAX measures.</div>
+          <div><span class="tl-tag">Power BI</span><span class="tl-tag">DAX</span><span class="tl-tag">BI Report</span></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot" style="background:#f59e0b"></div>
-          <div class="tl-date">2024</div>
+          <div class="tl-date">Apr 2025</div>
           <div class="tl-title">Online Restaurant System</div>
-          <div class="tl-sub">PHP · MySQL · HTML</div>
-          <div class="tl-desc">Web-based food ordering platform with PHP backend and MySQL database, streamlining order processing over manual workflows.</div>
+          <div class="tl-place">🌐 PHP · MySQL · HTML</div>
+          <div class="tl-desc">Web-based food ordering and restaurant management platform with PHP backend and MySQL database. Replaced manual order workflows with a clean, efficient digital system.</div>
+          <div><span class="tl-tag">PHP</span><span class="tl-tag">MySQL</span><span class="tl-tag">Web App</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="hr"></div>
+<div class="divider"></div>
 
-<!-- PROJECTS -->
+<!-- ═══ PROJECTS ═══ -->
 <section class="section" id="projects">
-  <div class="reveal"><div class="sec-label">Projects</div><h2 class="sec-h">Featured Work</h2><p class="sec-p">Real-world data projects built from scratch — clean data in, clear insights out.</p></div>
-  <div class="proj-list">
+  <div class="reveal"><div class="sec-eyebrow">Projects</div><h2 class="sec-h">Featured Work</h2><p class="sec-sub">Real-world data projects built from scratch — clean data in, clear business insights out.</p></div>
+  <div class="pj-list">
 
+    <!-- PROJECT 1 -->
     <div class="pj reveal" style="--pa:#6366f1;--pb:#8b5cf6">
-      <div class="pj-head">
-        <div class="pj-num">Project 01 · Dec 2025 · Desktop Application</div>
-        <div class="pj-title">Python Sales Analytics Dashboard</div>
-        <div class="pj-tags">
-          <span class="pt pt-v">Python</span><span class="pt pt-v">Pandas</span><span class="pt pt-c">Matplotlib</span><span class="pt pt-p">Tkinter</span><span class="pt pt-o">OpenPyXL</span>
+      <div class="pj-top">
+        <div class="pj-meta">
+          <span class="pj-num">Project 01 · Dec 2025</span>
+          <span class="pj-type">Desktop Application</span>
         </div>
-        <p class="pj-desc">A fully interactive desktop application that loads CSV or Excel sales files, auto-computes KPIs (Revenue = Qty × Unit Price), and renders 3 dynamic charts inside a custom-designed Tkinter GUI. Built with a modular architecture so each function is independently testable and extendable across teams.</p>
+        <div class="pj-title">Python Sales Analytics Dashboard</div>
+        <div class="tags"><span class="tag tv">Python</span><span class="tag tv">Pandas</span><span class="tag tc2">Matplotlib</span><span class="tag tp">Tkinter</span><span class="tag to">OpenPyXL</span></div>
+        <p class="pj-desc">A fully interactive desktop application that loads CSV or Excel sales files, auto-computes KPIs (Revenue = Qty × Unit Price), and renders 3 dynamic charts inside a custom-designed Tkinter GUI. Built with a modular architecture ensuring each function is independently testable and production-ready.</p>
       </div>
       <div class="pj-metrics">
         <div class="pm"><b>₹20.9L</b><span>Total Revenue</span></div>
@@ -458,23 +561,29 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:2rem 5%;display:flex;a
         <div class="pm"><b>CSV+XLSX</b><span>File Formats</span></div>
       </div>
       <div class="pj-feats">
-        <div class="pf"><span class="pf-arrow">→</span>Loads CSV & Excel with auto date parsing and type conversion</div>
-        <div class="pf"><span class="pf-arrow">→</span>Revenue by Month — line chart for trend analysis</div>
-        <div class="pf"><span class="pf-arrow">→</span>Revenue by Region — bar chart for geo comparison</div>
-        <div class="pf"><span class="pf-arrow">→</span>Top 5 Products — pie chart for product contribution</div>
-        <div class="pf"><span class="pf-arrow">→</span>Graceful error handling with user-friendly popups</div>
-        <div class="pf"><span class="pf-arrow">→</span>Modular design — each function independently testable</div>
+        <div class="pf"><span class="pf-arr">→</span>Loads CSV &amp; Excel with auto date parsing and type conversion</div>
+        <div class="pf"><span class="pf-arr">→</span>Revenue by Month — line chart for trend analysis</div>
+        <div class="pf"><span class="pf-arr">→</span>Revenue by Region — bar chart for geo performance</div>
+        <div class="pf"><span class="pf-arr">→</span>Top 5 Products by Revenue — pie chart breakdown</div>
+        <div class="pf"><span class="pf-arr">→</span>User-friendly error popups for invalid file types</div>
+        <div class="pf"><span class="pf-arr">→</span>Modular design — each function independently testable</div>
+      </div>
+      <div class="pj-footer">
+        <label class="upload-btn">📎 Upload Project File <input type="file" style="display:none" accept=".py,.xlsx,.csv,.pdf"/></label>
+        <a class="pj-link" href="#">View on GitHub →</a>
       </div>
     </div>
 
-    <div class="pj reveal" style="--pa:#8b5cf6;--pb:#06b6d4">
-      <div class="pj-head">
-        <div class="pj-num">Project 02 · 2025 · Power BI · 4-Page Interactive Report</div>
-        <div class="pj-title">Student Placement Analytics Dashboard</div>
-        <div class="pj-tags">
-          <span class="pt pt-c">Power BI</span><span class="pt pt-p">DAX</span><span class="pt pt-v">Power Query</span><span class="pt pt-o">Data Modeling</span>
+    <!-- PROJECT 2 -->
+    <div class="pj reveal" style="--pa:#a855f7;--pb:#06b6d4">
+      <div class="pj-top">
+        <div class="pj-meta">
+          <span class="pj-num">Project 02 · Mar 2026</span>
+          <span class="pj-type">Power BI · 4-Page Report</span>
         </div>
-        <p class="pj-desc">A comprehensive 4-page interactive Power BI report analyzing 200 student placement records across 5 branches and 5 graduation years. Uses DAX measures and Power Query transformations to surface placement trends, salary bands, job roles, gender splits, and CGPA-to-package correlation — all with interactive slicers.</p>
+        <div class="pj-title">Student Placement Analytics Dashboard</div>
+        <div class="tags"><span class="tag tc2">Power BI</span><span class="tag tp">DAX</span><span class="tag tv">Power Query</span><span class="tag to">Data Modeling</span><span class="tag tg">KPI Design</span></div>
+        <p class="pj-desc">A comprehensive 4-page interactive Power BI report analyzing 200 student placement records across 5 branches and 5 graduation years. Uses advanced DAX measures and Power Query transformations to surface placement trends, salary distribution, job roles, gender splits, and CGPA-to-package correlation — all with fully interactive slicers.</p>
       </div>
       <div class="pj-metrics">
         <div class="pm"><b>200</b><span>Students</span></div>
@@ -482,64 +591,75 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:2rem 5%;display:flex;a
         <div class="pm"><b>28.83L</b><span>Top Package</span></div>
         <div class="pm"><b>9 LPA</b><span>Avg Package</span></div>
         <div class="pm"><b>Byju's</b><span>Top Recruiter</span></div>
+        <div class="pm"><b>4</b><span>Report Pages</span></div>
       </div>
-      <div class="pb-pages">
-        <div class="pb-pg"><div class="pb-ph">📊 Page 1 — Placement Overview</div><div class="pb-pb">KPI cards: Total / Placed / Not Placed / %<br/>Trend by year (line) · Branch bar chart<br/>IT vs Non-IT donut · Year + Branch slicer</div></div>
-        <div class="pb-pg"><div class="pb-ph">📈 Page 2 — Performance Analysis</div><div class="pb-pb">Placement by branch (donut + bar)<br/>State-wise distribution · Year vs Degree<br/>Gender split: 55% Female · 45% Male</div></div>
-        <div class="pb-pg"><div class="pb-ph">❌ Page 3 — Unplaced Analysis</div><div class="pb-pb">60 unplaced students deep-dive<br/>State-wise: Kerala leads (15)<br/>B.Tech: 35% highest unplaced group</div></div>
-        <div class="pb-pg"><div class="pb-ph">💰 Page 4 — Salary & Recruiters</div><div class="pb-pb">Byju's 18 · Amazon 15 · Deloitte 14<br/>Tiers: Low 96 · Med 75 · High 29<br/>CGPA vs Salary scatter · WFH 55</div></div>
+      <div class="pb-grid">
+        <div class="pb-card"><div class="pb-title">📊 Page 1 — Placement Overview</div><div class="pb-body">KPI cards: Total / Placed / Not Placed / %<br/>Trend by year (line) · Branch bar chart<br/>IT vs Non-IT donut · Year + Branch slicer</div></div>
+        <div class="pb-card"><div class="pb-title">📈 Page 2 — Performance Analysis</div><div class="pb-body">Placement by branch (donut + bar)<br/>State-wise distribution · Year vs Degree<br/>Gender split: 55% Female · 45% Male</div></div>
+        <div class="pb-card"><div class="pb-title">❌ Page 3 — Unplaced Deep Dive</div><div class="pb-body">60 unplaced students analysis<br/>State-wise: Kerala leads (15 students)<br/>B.Tech: 35% highest unplaced group</div></div>
+        <div class="pb-card"><div class="pb-title">💰 Page 4 — Salary &amp; Recruiters</div><div class="pb-body">Byju's 18 · Amazon 15 · Deloitte 14<br/>Tiers: Low 96 · Med 75 · High 29<br/>CGPA vs Salary scatter · WFH 55</div></div>
+      </div>
+      <div class="pj-footer">
+        <label class="upload-btn">📎 Upload .pbix File <input type="file" style="display:none" accept=".pbix,.pdf,.png"/></label>
+        <a class="pj-link" href="#">View Report →</a>
       </div>
     </div>
 
+    <!-- PROJECT 3 -->
     <div class="pj reveal" style="--pa:#f59e0b;--pb:#f97316">
-      <div class="pj-head">
-        <div class="pj-num">Project 03 · 2024 · Web Application</div>
-        <div class="pj-title">Online Restaurant Management System</div>
-        <div class="pj-tags">
-          <span class="pt pt-o">PHP</span><span class="pt pt-c">MySQL</span><span class="pt pt-v">HTML</span>
+      <div class="pj-top">
+        <div class="pj-meta">
+          <span class="pj-num">Project 03 · Apr 2025</span>
+          <span class="pj-type">Web Application</span>
         </div>
-        <p class="pj-desc">A web-based food ordering and management platform with PHP backend and MySQL database — streamlining order processing and replacing manual workflows with a clean, digital system.</p>
+        <div class="pj-title">Online Restaurant Management System</div>
+        <div class="tags"><span class="tag to">PHP</span><span class="tag tc2">MySQL</span><span class="tag tv">HTML</span></div>
+        <p class="pj-desc">A web-based food ordering and restaurant management platform with PHP backend and MySQL database — streamlining order processing and replacing manual workflows with a fast, reliable digital system for both staff and customers.</p>
       </div>
       <div class="pj-feats" style="padding-top:1.5rem">
-        <div class="pf"><span class="pf-arrow">→</span>Customer-facing food ordering and menu browsing interface</div>
-        <div class="pf"><span class="pf-arrow">→</span>MySQL database for orders, menu items, and customers</div>
-        <div class="pf"><span class="pf-arrow">→</span>PHP backend for order management and business logic</div>
-        <div class="pf"><span class="pf-arrow">→</span>Replaced manual workflows with streamlined digital system</div>
+        <div class="pf"><span class="pf-arr">→</span>Customer-facing food ordering and menu browsing interface</div>
+        <div class="pf"><span class="pf-arr">→</span>MySQL database for orders, menu items, and customer records</div>
+        <div class="pf"><span class="pf-arr">→</span>PHP backend for order management and core business logic</div>
+        <div class="pf"><span class="pf-arr">→</span>Replaced manual paper-based workflows with a digital system</div>
+      </div>
+      <div class="pj-footer">
+        <label class="upload-btn">📎 Upload Project Doc <input type="file" style="display:none" accept=".pdf,.doc,.docx,.zip"/></label>
+        <a class="pj-link" href="#">View Project →</a>
       </div>
     </div>
 
   </div>
 </section>
 
-<div class="hr"></div>
+<div class="divider"></div>
 
-<!-- CERTS -->
+<!-- ═══ CERTIFICATIONS ═══ -->
 <section class="section" id="certifications">
-  <div class="reveal"><div class="sec-label">Certifications</div><h2 class="sec-h">Credentials</h2><p class="sec-p">Industry-recognized certifications validating skills across data, analytics, and development.</p></div>
+  <div class="reveal"><div class="sec-eyebrow">Certifications</div><h2 class="sec-h">Credentials &amp; Achievements</h2><p class="sec-sub">Industry-recognized certifications validating skills across data, analytics, and development.</p></div>
   <div class="cert-grid">
-    <div class="cert reveal" style="--ca:#6366f1;--cb:#8b5cf6"><div class="cert-ic" style="background:rgba(99,102,241,.12)">🏅</div><div><div class="cert-name">Python 101 for Data Science</div><div class="cert-issuer">IBM</div><div class="cert-yr">2024</div></div></div>
-    <div class="cert reveal d1" style="--ca:#10b981;--cb:#059669"><div class="cert-ic" style="background:rgba(16,185,129,.12)">🐍</div><div><div class="cert-name">Python Programming</div><div class="cert-issuer">Innovel Training, Madurai</div><div class="cert-yr">2025</div></div></div>
-    <div class="cert reveal d2" style="--ca:#06b6d4;--cb:#0891b2"><div class="cert-ic" style="background:rgba(6,182,212,.12)">📗</div><div><div class="cert-name">Getting Started with Excel</div><div class="cert-issuer">Coursera</div><div class="cert-yr">2023</div></div></div>
-    <div class="cert reveal" style="--ca:#f59e0b;--cb:#d97706"><div class="cert-ic" style="background:rgba(245,158,11,.12)">📊</div><div><div class="cert-name">Power BI for Data Analytics</div><div class="cert-issuer">Innovel Training, Madurai</div><div class="cert-yr">2025</div></div></div>
-    <div class="cert reveal d1" style="--ca:#ec4899;--cb:#db2777"><div class="cert-ic" style="background:rgba(236,72,153,.12)">📣</div><div><div class="cert-name">Digital Marketing Fundamentals</div><div class="cert-issuer">IIDE</div><div class="cert-yr">2023</div></div></div>
-    <div class="cert reveal d2" style="--ca:#8b5cf6;--cb:#7c3aed"><div class="cert-ic" style="background:rgba(139,92,246,.12)">🤖</div><div><div class="cert-name">Machine Learning Fundamentals</div><div class="cert-issuer">Innovel Training, Madurai</div><div class="cert-yr">2026</div></div></div>
+    <div class="cert reveal" style="--ca:#6366f1;--cb:#8b5cf6"><div class="cert-ico" style="background:rgba(99,102,241,.12)">🏅</div><div class="cert-body"><div class="cert-name">Python 101 for Data Science</div><div class="cert-issuer">IBM · Cognitive Class</div><div class="cert-yr">2024</div></div></div>
+    <div class="cert reveal d1" style="--ca:#10b981;--cb:#059669"><div class="cert-ico" style="background:rgba(16,185,129,.12)">🐍</div><div class="cert-body"><div class="cert-name">Python Programming</div><div class="cert-issuer">Innovel Training, Madurai</div><div class="cert-yr">2025</div></div></div>
+    <div class="cert reveal d2" style="--ca:#06b6d4;--cb:#0891b2"><div class="cert-ico" style="background:rgba(6,182,212,.12)">📗</div><div class="cert-body"><div class="cert-name">Getting Started with Excel</div><div class="cert-issuer">Coursera</div><div class="cert-yr">2023</div></div></div>
+    <div class="cert reveal" style="--ca:#f59e0b;--cb:#d97706"><div class="cert-ico" style="background:rgba(245,158,11,.12)">📊</div><div class="cert-body"><div class="cert-name">Power BI for Data Analytics</div><div class="cert-issuer">Innovel Training, Madurai</div><div class="cert-yr">2025</div></div></div>
+    <div class="cert reveal d1" style="--ca:#ec4899;--cb:#db2777"><div class="cert-ico" style="background:rgba(236,72,153,.12)">📣</div><div class="cert-body"><div class="cert-name">Digital Marketing Fundamentals</div><div class="cert-issuer">IIDE — Indian Institute of Digital Education</div><div class="cert-yr">2023</div></div></div>
+    <div class="cert reveal d2" style="--ca:#a855f7;--cb:#7c3aed"><div class="cert-ico" style="background:rgba(168,85,247,.12)">🤖</div><div class="cert-body"><div class="cert-name">Machine Learning Fundamentals</div><div class="cert-issuer">Innovel Training, Madurai</div><div class="cert-yr">2026</div></div></div>
   </div>
 </section>
 
-<div class="hr"></div>
+<div class="divider"></div>
 
-<!-- CONTACT -->
+<!-- ═══ CONTACT ═══ -->
 <section class="section" id="contact">
-  <div class="reveal"><div class="sec-label">Contact</div><h2 class="sec-h">Let's Work Together</h2></div>
-  <div class="contact-wrap reveal">
+  <div class="reveal"><div class="sec-eyebrow">Contact</div><h2 class="sec-h">Let's Work Together</h2></div>
+  <div class="contact-box reveal">
     <div>
-      <div class="c-h">Got an <span>opportunity?</span></div>
-      <p class="c-p">I'm actively seeking entry-level Data Analyst, Reporting Analyst, and BI Analyst roles at top MNCs — remote or on-site. If you're hiring or want to collaborate, let's talk.</p>
+      <div class="c-h">Got an <em>opportunity?</em></div>
+      <p class="c-p">I'm actively seeking entry-level Data Analyst, Reporting Analyst, and BI Analyst roles at top MNCs — remote or on-site. If you're hiring or want to collaborate, I'd love to connect.</p>
       <div class="c-links">
-        <a class="c-lnk" href="mailto:sksanthosh845@gmail.com"><div class="c-ic">✉️</div><div><div class="c-lbl">Email</div><div class="c-val">sksanthosh845@gmail.com</div></div></a>
-        <a class="c-lnk" href="tel:9751115240"><div class="c-ic">📞</div><div><div class="c-lbl">Phone</div><div class="c-val">+91 9751115240</div></div></a>
-        <a class="c-lnk" href="https://linkedin.com/in/santhosh-m-sk" target="_blank"><div class="c-ic">🔗</div><div><div class="c-lbl">LinkedIn</div><div class="c-val">linkedin.com/in/santhosh-m-sk</div></div></a>
-        <a class="c-lnk" href="#"><div class="c-ic">📍</div><div><div class="c-lbl">Location</div><div class="c-val">Madurai, Tamil Nadu, India</div></div></a>
+        <a class="c-lnk" href="mailto:sksanthosh845@gmail.com"><div class="c-ico">✉️</div><div><div class="c-lbl">Email</div><div class="c-val">sksanthosh845@gmail.com</div></div></a>
+        <a class="c-lnk" href="tel:+919751115240"><div class="c-ico">📞</div><div><div class="c-lbl">Phone</div><div class="c-val">+91 9751115240</div></div></a>
+        <a class="c-lnk" href="https://linkedin.com/in/santhosh-m-sk" target="_blank"><div class="c-ico">🔗</div><div><div class="c-lbl">LinkedIn</div><div class="c-val">linkedin.com/in/santhosh-m-sk</div></div></a>
+        <a class="c-lnk" href="#"><div class="c-ico">📍</div><div><div class="c-lbl">Location</div><div class="c-val">Madurai, Tamil Nadu, India</div></div></a>
       </div>
     </div>
     <div class="cf">
@@ -558,24 +678,51 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:2rem 5%;display:flex;a
 </main>
 
 <footer>
-  <div>© 2026 Santhosh M · Data Analyst · Madurai, TN</div>
-  <div class="ft-links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+  <div>© 2026 Santhosh M · Data Analyst · Madurai, TN · Built with ♥</div>
+  <div class="ft-r"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
 </footer>
 
 <script>
+// Scroll progress
 window.addEventListener('scroll',()=>{
   document.getElementById('bar').style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%'
 })
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.07})
+
+// Reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.06})
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el))
+
+// Skill bar animation
 const sio=new IntersectionObserver(es=>{
   es.forEach(e=>{
-    if(e.isIntersecting)e.target.querySelectorAll('.sk-fill').forEach(b=>{
-      const w=b.style.width;b.style.width='0';setTimeout(()=>b.style.width=w,100)
-    })
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.fill').forEach(b=>{
+        const w=b.style.getPropertyValue('--w')||b.getAttribute('data-w')||'0%'
+        b.style.width='0'
+        setTimeout(()=>b.style.width=w,120)
+      })
+    }
   })
-},{threshold:.3})
-document.querySelectorAll('.sk-card').forEach(c=>sio.observe(c))
+},{threshold:.25})
+document.querySelectorAll('.sk').forEach(c=>sio.observe(c))
+
+// Store fill widths before animation resets them
+document.querySelectorAll('.fill').forEach(b=>{
+  b.setAttribute('data-w',b.style.width||'0%')
+  b.style.width='0'
+})
+
+// File upload feedback
+document.querySelectorAll('input[type=file]').forEach(inp=>{
+  inp.addEventListener('change',function(){
+    if(this.files[0]){
+      const btn=this.closest('.upload-btn')
+      btn.innerHTML='✅ '+this.files[0].name.slice(0,28)+(this.files[0].name.length>28?'…':'')
+      btn.style.color='#4ade80'
+      btn.style.borderColor='rgba(74,222,128,.4)'
+    }
+  })
+})
 </script>
 </body>
 </html>
